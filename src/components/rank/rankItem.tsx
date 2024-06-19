@@ -1,4 +1,5 @@
 import React from "react";
+import { Score_sm } from "../score/score";
 
 const RankItem = () => {
   return (
@@ -7,7 +8,9 @@ const RankItem = () => {
         <p>Title</p>
         <p>date</p>
       </div>
-      <div>marks</div>
+      <div>
+        <Score_sm />
+      </div>
     </div>
   );
 };
