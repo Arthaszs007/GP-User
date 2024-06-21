@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "@/components/public/navigation";
 import Footer from "@/components/public/footer";
+import { SearchModal } from "@/components/modal/modal_serach";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +10,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Navigation />
       </div>
       <div className="flex flex-col w-full items-center bg-gray-100">
-        <div className=" pt-10 w-[70rem] ">{children}</div>
+        <div className=" pt-10 w-[70rem] ">
+          {children}
+          <SearchModal />
+        </div>
         <div>
           <Footer />
         </div>

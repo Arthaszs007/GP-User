@@ -1,0 +1,7 @@
+GET http://localhost:3000/api/games?ids=10001
+
+###
+GET http://localhost:3000/api/config
+
+###
+GET http://localhost:3000/api/games/search?value=fallout

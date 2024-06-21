@@ -1,13 +1,14 @@
+import { getVideoSrc } from "@/lib/action/video";
 import React from "react";
 
-const Trailer = () => {
+const Trailer = ({ desc }: { desc: string | undefined }) => {
   return (
     <div className="flex flex-row space-x-4">
       <div className=" w-1/2">
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/FIYmlQw1Lms?si=-ZwdDBqdqUsU0ope"
+          src={desc && getVideoSrc(desc)}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

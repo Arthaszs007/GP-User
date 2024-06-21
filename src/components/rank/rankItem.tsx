@@ -9,7 +9,7 @@ const RankItem = () => {
         <p>date</p>
       </div>
       <div>
-        <Score_sm />
+        <Score_sm score={"99"} />
       </div>
     </div>
   );

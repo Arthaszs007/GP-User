@@ -1,13 +1,17 @@
 import React from "react";
-import { Score_lg } from "../score/score";
+import { Score_md } from "../score/score";
+import { IGame } from "@/models/game";
+import { scoreAverage } from "@/lib/action/scores";
+import { getVideoSrc } from "@/lib/action/video";
 
-const Video = () => {
+// receive a game type
+const Video = ({ game }: { game: IGame | undefined }) => {
   return (
     <div>
       <iframe
         width="746.66"
         height="419.63"
-        src="https://www.youtube.com/embed/hp9hwjdPKvc?si=7JUazIBcwJDcimdC"
+        src={game && getVideoSrc(game.description)}
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -17,10 +21,10 @@ const Video = () => {
 
       <div className=" flex flex-row justify-between px-3 py-3">
         <div className="flex flex-col justify-between">
-          <p className="text-xl font-medium">Title</p>
-          <p>Platform</p>
+          <p className="text-xl font-medium">{game && game.name}</p>
+          <p>{game && game.platform}</p>
         </div>
-        <Score_lg />
+        <Score_md score={game && scoreAverage(game.scores)} />
       </div>
     </div>
   );

@@ -1,13 +1,16 @@
 import React from "react";
 import { Score_md, Score_sm } from "../score/score";
+import { IGame } from "@/models/game";
+import { getVideoCover } from "@/lib/action/video";
+import { GetScores, scoreAverage } from "@/lib/action/scores";
 
-const GameDetail = () => {
+const GameDetail = ({ game }: { game: IGame | undefined }) => {
   return (
     <div className="relative flex flex-col justify-center items-center">
       <img
         className="w-[80rem] h-[25rem]  object-cover blur-sm"
-        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-        alt="Tailwind-CSS-Avatar-component"
+        src={game && getVideoCover(game.description)}
+        alt="cover"
       />
 
       <div className="absolute h-[20rem] w-[55rem] mx-20 bg-gray-200 rounded-lg mt-[10rem] hero">
@@ -15,14 +18,16 @@ const GameDetail = () => {
           <div className="w-2/6 flex flex-col items-center ">
             <img
               className="w-[13rem] h-[13rem]  object-cover rounded-lg"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              alt="Tailwind-CSS-Avatar-component"
+              src={game && game.images}
+              alt="image"
             />
           </div>
           <div className="flex flex-col justify-between w-4/6 h-[13rem] mr-[3rem]">
             <div className="flex flex-col">
-              <div className="text-3xl font-bold">Name</div>
-              <div className="mt-5 text-xl">info</div>
+              <div className="text-3xl font-bold">{game && game.name}</div>
+              <div className="mt-5 text-xl">
+                {game && game.developer} - {game && game.release}
+              </div>
             </div>
             <div className="flex flex-row justify-between space-x-10">
               <div className="w-full flex flex-col space-y-2">
@@ -37,7 +42,7 @@ const GameDetail = () => {
                       <p className="ml-3">Steam</p>
                     </div>
                     <div>
-                      <Score_sm />
+                      <Score_sm score={game && GetScores(game.scores, 0)} />
                     </div>
                   </div>
                   <div className="flex flex-row items-center w-1/2 justify-between">
@@ -50,7 +55,7 @@ const GameDetail = () => {
                       <p className="ml-3">IGN</p>
                     </div>
                     <div>
-                      <Score_sm />
+                      <Score_sm score={game && GetScores(game.scores, 1)} />
                     </div>
                   </div>
                 </div>
@@ -65,7 +70,7 @@ const GameDetail = () => {
                       <p className="ml-3">Metacritic</p>
                     </div>
                     <div>
-                      <Score_sm />
+                      <Score_sm score={game && GetScores(game.scores, 2)} />
                     </div>
                   </div>
                   <div className="flex flex-row items-center w-1/2 justify-between">
@@ -78,13 +83,13 @@ const GameDetail = () => {
                       <p className="ml-3">Gamespot</p>
                     </div>
                     <div>
-                      <Score_sm />
+                      <Score_sm score={game && GetScores(game.scores, 3)} />
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <Score_md />
+                <Score_md score={game && scoreAverage(game.scores)} />
               </div>
             </div>
           </div>

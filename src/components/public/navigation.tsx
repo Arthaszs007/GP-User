@@ -1,7 +1,20 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
 const Navigation = () => {
+  // to open the search game modal
+  const OpenModal = () => {
+    const modal = document.getElementById(
+      "search_modal"
+    ) as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+      modal.scrollTop = 0;
+    } else {
+      console.error("Modal element not found");
+    }
+  };
   return (
     <div className="flex flex-col-reverse place-items-center w-full h-full">
       <div className="mb-10">
@@ -30,7 +43,7 @@ const Navigation = () => {
             </Link>
           </li>
           <li>
-            <a>
+            <a onClick={OpenModal}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
