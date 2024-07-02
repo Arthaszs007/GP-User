@@ -28,7 +28,6 @@ const About = () => {
 
   return (
     <div>
-      {/* display is "1" will display */}
       {about && about[0].display === "1" ? (
         <ContactCard src={about[0].image} />
       ) : (
@@ -40,7 +39,7 @@ const About = () => {
 
 export default About;
 
-export const Nocontent = () => {
+const Nocontent = () => {
   return (
     <div className="flex flex-col items-center">
       <p className="text-4xl text-center mt-4">About page is coming soon </p>

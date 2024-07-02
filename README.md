@@ -7,10 +7,9 @@ Disclaimer: This project is for learning and research purposes only. All website
 
 Frist, install
 
-````bash
+```bash
 npm i
 ```
-
 
 Second, run the development server:
 
@@ -21,11 +20,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## Deploy on Vercel
 
 vercel link: https://gp-user.vercel.app/
-
-````
 
 Created by Arthas.L for SAIT capstone .
