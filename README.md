@@ -5,7 +5,7 @@ Disclaimer: This project is for learning and research purposes only. All website
 
 ## Getting Started
 
-Frist, install
+First, install
 
 ```bash
 npm i
