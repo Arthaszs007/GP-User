@@ -1,15 +1,15 @@
-
 import connectDB from "@/lib/mongoDB/dbConnect";
-import Config from "@/models/config";
+import Upcoming from "@/models/upcoming";
+
 import { NextResponse } from "next/server";
 
 export async function GET(req:Request){
 
     await connectDB();
     try{
-        const config = await Config.find().exec()
+        const upcoming =await Upcoming.find().exec();
 
-        return NextResponse.json(config,{status:200})
+        return NextResponse.json(upcoming)
     }catch(e:any){
         return NextResponse.json({error:e.error},{status:400})
     }

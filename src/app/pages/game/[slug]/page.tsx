@@ -16,7 +16,6 @@ const Game = ({ params }: { params: { slug: string } }) => {
         `${process.env.WEB_URL}/api/games?ids=${params.slug}`,
         {
           method: "GET",
-          headers: { "Content-type": "application/json" },
         }
       );
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);

@@ -37,10 +37,10 @@ export async function GET(req:Request){
                 }
             }
         ]).exec();
-        return NextResponse.json(games);
+        return NextResponse.json(games,{status:200});
 
     }catch(e:any){
-        return NextResponse.json({error:e.error});
+        return NextResponse.json({error:e.error},{status:400});
        
     }
 

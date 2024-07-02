@@ -3,6 +3,7 @@ import { Score_md } from "../score/score";
 import { IGame } from "@/models/game";
 import { scoreAverage } from "@/lib/action/scores";
 import { getVideoSrc } from "@/lib/action/video";
+import Link from "next/link";
 
 // receive a game type
 const Video = ({ game }: { game: IGame | undefined }) => {
@@ -21,7 +22,9 @@ const Video = ({ game }: { game: IGame | undefined }) => {
 
       <div className=" flex flex-row justify-between px-3 py-3">
         <div className="flex flex-col justify-between">
-          <p className="text-xl font-medium">{game && game.name}</p>
+          <Link href={`/pages/game/${game?.id}`}>
+            <p className="text-xl font-medium">{game && game.name}</p>
+          </Link>
           <p>{game && game.platform}</p>
         </div>
         <Score_md score={game && scoreAverage(game.scores)} />

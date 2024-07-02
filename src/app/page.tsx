@@ -1,9 +1,12 @@
-import Main from "./pages/main/page";
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  return (
-    <>
-      <Main />
-    </>
-  );
+  //redirect to "/pages/main"
+  const router = useRouter();
+  useEffect(() => {
+    router.replace(`/pages/main`);
+  }, [router]);
+  return <></>;
 }

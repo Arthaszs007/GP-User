@@ -17,12 +17,48 @@ const Trailer = ({ desc }: { desc: string | undefined }) => {
         ></iframe>
       </div>
       <div className="w-1/2 grid grid-cols-3 gap-2">
-        <div className="bg-red-100">1</div>
-        <div className="bg-red-100">2</div>
-        <div className="bg-red-100">3</div>
-        <div className="bg-red-100">4</div>
-        <div className="bg-red-100">5</div>
-        <div className="bg-red-100">6</div>
+        <div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            alt="icon"
+          />
+        </div>
+        <div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            alt="icon"
+          />
+        </div>
+        <div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            alt="icon"
+          />
+        </div>
+        <div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            alt="icon"
+          />
+        </div>
+        <div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            alt="icon"
+          />
+        </div>
+        <div>
+          <img
+            className="w-full h-full object-cover rounded-lg"
+            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            alt="icon"
+          />
+        </div>
       </div>
     </div>
   );

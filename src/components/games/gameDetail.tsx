@@ -13,7 +13,7 @@ const GameDetail = ({ game }: { game: IGame | undefined }) => {
         alt="cover"
       />
 
-      <div className="absolute h-[20rem] w-[55rem] mx-20 bg-gray-200 rounded-lg mt-[10rem] hero">
+      <div className="absolute h-[20rem] w-[55rem] mx-20 bg-gray-200 rounded-lg mt-[10rem] hero shadow-lg">
         <div className="hero-content flex flex-row h-full w-full">
           <div className="w-2/6 flex flex-col items-center ">
             <img
@@ -29,7 +29,7 @@ const GameDetail = ({ game }: { game: IGame | undefined }) => {
                 {game && game.developer} - {game && game.release}
               </div>
             </div>
-            <div className="flex flex-row justify-between space-x-10">
+            <div className="flex flex-row justify-between space-x-10 items-center">
               <div className="w-full flex flex-col space-y-2">
                 <div className="flex flex-row justify-between w-full space-x-20">
                   <div className="flex flex-row items-center w-1/2 justify-between">
@@ -88,7 +88,9 @@ const GameDetail = ({ game }: { game: IGame | undefined }) => {
                   </div>
                 </div>
               </div>
+
               <div>
+                <p className="text-center text-lg">Ave</p>
                 <Score_md score={game && scoreAverage(game.scores)} />
               </div>
             </div>

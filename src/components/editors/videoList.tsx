@@ -8,6 +8,7 @@ import { getVideoCover } from "@/lib/action/video";
 const VideoList = ({ games }: { games: IGame[] }) => {
   // to storage the current game info to show
   const [curGame, setCurGame] = useState<IGame | undefined>(undefined);
+
   // to set the seleted item
   const handleVideoChange = (value: IGame) => {
     setCurGame(value);
@@ -16,6 +17,7 @@ const VideoList = ({ games }: { games: IGame[] }) => {
   useEffect(() => {
     setCurGame(games[0]);
   }, [games]);
+
   return (
     <div className="flex flex-row justify-between space-x-4">
       <div className="w-2/3">
@@ -29,6 +31,7 @@ const VideoList = ({ games }: { games: IGame[] }) => {
               <VideoListItem
                 imgSrc={getVideoCover(item.description)}
                 name={item.name}
+                selected={curGame?.id === item.id ? true : false}
               />
             </div>
           ))}
@@ -43,12 +46,20 @@ export default VideoList;
 export const VideoListItem = ({
   imgSrc,
   name,
+  selected,
 }: {
   imgSrc: string | undefined;
   name: string;
+  selected: boolean;
 }) => {
   return (
-    <div className="flex flex-row space-x-3">
+    <div
+      className={
+        selected
+          ? "flex flex-row space-x-3 bg-gray-300  rounded-lg"
+          : "flex flex-row space-x-3"
+      }
+    >
       <div className="rounded w-1/2 h-[7.5rem]">
         <img src={imgSrc} className="h-full w-full rounded-lg" />
       </div>

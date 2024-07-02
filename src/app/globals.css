@@ -17,9 +17,6 @@
     }
   }
   
-  body {
-     /* overflow: hidden; */
-  }
   
   @layer utilities {
     .text-balance {
@@ -27,3 +24,14 @@
     }
   }
   
+@keyframes expend-width {
+  from {
+    width: 5rem;
+  }
+  to{
+    width : 30rem;
+  }
+}
+.expend-width{
+  animation:expend-width 1s forwards ;
+}

@@ -1,12 +1,20 @@
 "use client";
+import { AppDispatch } from "@/redux/store";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const Navigation = () => {
+  //get user data from session
+  const { data: session } = useSession();
+  // get dispatch from the redux store
+  const dispatch = useDispatch<AppDispatch>();
+
   // to open the search game modal
-  const OpenModal = () => {
+  const OpenModal = (modalName: string) => {
     const modal = document.getElementById(
-      "search_modal"
+      modalName
     ) as HTMLDialogElement | null;
     if (modal) {
       modal.showModal();
@@ -15,13 +23,42 @@ const Navigation = () => {
       console.error("Modal element not found");
     }
   };
+  // for test
+  // useEffect(() => {
+  //   console.log(JSON.stringify(session?.user?.name));
+  // }, [session]);
+
+  // use to sign out
+  const HandleSignOut = async () => {
+    await signOut({ redirect: false });
+    // //set the toast info
+    // dispatch(
+    //   setErrorToast({
+    //     isActive: true,
+    //     content: "Sign out successfully",
+    //     color: "alert-info",
+    //   })
+    // );
+  };
   return (
     <div className="flex flex-col-reverse place-items-center w-full h-full">
       <div className="mb-10">
-        <button className="btn btn-neutral w-40">Sign out</button>
+        {session ? (
+          <button
+            className="btn btn-neutral w-40"
+            onClick={() => HandleSignOut()}
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link href="/login">
+            <button className="btn btn-neutral w-40">Sign In / Up</button>
+          </Link>
+        )}
       </div>
+      <p className="mb-2">{session ? session?.user?.name : "Please Sign in"}</p>
       <div className="divider divider-start" />
-      <div className="mb-10">
+      <div className="mb-8">
         <ul className="menu menu-lg  w-56 rounded-box">
           <li>
             <Link href="/pages/main">
@@ -43,7 +80,7 @@ const Navigation = () => {
             </Link>
           </li>
           <li>
-            <a onClick={OpenModal}>
+            <a onClick={() => OpenModal("search_modal")}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -62,7 +99,7 @@ const Navigation = () => {
             </a>
           </li>
           <li>
-            <a>
+            <Link href="/pages/rank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -78,10 +115,10 @@ const Navigation = () => {
                 />
               </svg>
               Ranks
-            </a>
+            </Link>
           </li>
           <li>
-            <a>
+            <Link href="/pages/news">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -93,14 +130,14 @@ const Navigation = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
               News
-            </a>
+            </Link>
           </li>
           <li>
-            <Link href="/pages/game/10001">
+            <Link href="/pages/about">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -121,8 +158,9 @@ const Navigation = () => {
         </ul>
       </div>
       <div className="divider divider-start" />
-      <div className="w-24 mb-10">
-        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+      <div className="flex flex-col items-center w-full mb-7 mt-7">
+        <img src="/logo.png" className="w-[7rem] h-[5rem]" />
+        <p className="text-center text-2xl font-bold">Game Point</p>
       </div>
     </div>
   );

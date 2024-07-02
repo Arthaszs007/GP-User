@@ -3,6 +3,8 @@ import Navigation from "@/components/public/navigation";
 import Footer from "@/components/public/footer";
 import { SearchModal } from "@/components/modal/modal_serach";
 
+import ErrorToast from "@/components/public/errorToast";
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-row">
@@ -13,6 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className=" pt-10 w-[70rem] ">
           {children}
           <SearchModal />
+          <ErrorToast />
         </div>
         <div>
           <Footer />

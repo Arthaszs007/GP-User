@@ -41,7 +41,6 @@ const Main = () => {
         `${process.env.WEB_URL}/api/games?ids=${config[0].pop}`,
         {
           method: "GET",
-          headers: { "Content-type": "application/json" },
         }
       );
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
@@ -88,7 +87,6 @@ const Main = () => {
     }
   };
 
-  const JumpPage = (gameid: string) => {};
   // for test
   // useEffect(() => {
   //   console.log(editors);
