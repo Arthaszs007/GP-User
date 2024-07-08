@@ -90,7 +90,7 @@ const GameDetail = ({ game }: { game: IGame | undefined }) => {
               </div>
 
               <div>
-                <p className="text-center text-lg">Ave</p>
+                <p className="text-center text-lg">Avg</p>
                 <Score_md score={game && scoreAverage(game.scores)} />
               </div>
             </div>
