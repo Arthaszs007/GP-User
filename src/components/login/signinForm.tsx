@@ -43,7 +43,7 @@ const SigninForm = () => {
 
   return (
     <div className="flex flex-col space-y-2 px-5">
-      <p className="text-2xl font-bold text-center">Login in</p>
+      <p className="text-2xl font-bold text-center">Log in</p>
       <p>Username</p>
       <label className="input input-bordered flex items-center gap-2">
         <svg
