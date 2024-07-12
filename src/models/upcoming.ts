@@ -4,6 +4,7 @@ export interface IUpcoming extends Document{
     release:string,
     name:string,
     score:string
+
 }
 
 const UpcomingSchema : Schema= new  mongoose.Schema({
@@ -19,6 +20,7 @@ const UpcomingSchema : Schema= new  mongoose.Schema({
         type:String,
         required:true
     }
+
 })
 
 const Upcoming = mongoose.models.Upcoming|| mongoose.model<IUpcoming>("Upcoming",UpcomingSchema,"upcoming");

@@ -1,17 +1,22 @@
 import connectDB from "@/lib/mongoDB/dbConnect";
-import News from "@/models/news";
+import Rank from "@/models/rank";
 import { NextResponse } from "next/server";
 
-export async function GET(req:Request){
+
+export async function GET(req:Request) {
 
     await connectDB();
     try{
-        const news = await News.find().exec();
 
-        return NextResponse.json(news,{status:200})
+        const ranks = await Rank.find().exec();
+        
+        return NextResponse.json(ranks,{status:200})
+
     }catch(e:any){
+
         return NextResponse.json({error:e.error},{status:400})
     }
 
-   
+    
+    
 }

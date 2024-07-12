@@ -49,12 +49,12 @@ const Login = () => {
           &lt; Take me back to the main page
         </Link>
         <div className="flex flex-row w-full h-[42rem] space-x-[10rem] items-center justify-center mb-20">
-          <div className="w-[22rem] h-[32rem] flex flex-col">
-            <SigninForm />
+          <div className="w-[22rem] h-[32rem] flex flex-col ">
+            <RegisterForm />
             <div className="mt-auto flex flex-col items-center space-y-2">
-              <div className="flex flex-row  w-[20rem] items-end space-x-6">
-                <Link className="link mt-8 ml-10" href="/signup">
-                  Sign up
+              <div className="flex flex-row items-end space-x-6 w-[20rem]">
+                <Link className="link mt-8 ml-10" href="/login">
+                  Sign in
                 </Link>
                 <p>or continue with</p>
               </div>

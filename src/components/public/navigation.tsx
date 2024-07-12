@@ -1,15 +1,11 @@
 "use client";
-import { AppDispatch } from "@/redux/store";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
-import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   //get user data from session
   const { data: session } = useSession();
-  // get dispatch from the redux store
-  const dispatch = useDispatch<AppDispatch>();
 
   // to open the search game modal
   const OpenModal = (modalName: string) => {
@@ -31,18 +27,10 @@ const Navigation = () => {
   // use to sign out
   const HandleSignOut = async () => {
     await signOut({ redirect: false });
-    // //set the toast info
-    // dispatch(
-    //   setErrorToast({
-    //     isActive: true,
-    //     content: "Sign out successfully",
-    //     color: "alert-info",
-    //   })
-    // );
   };
   return (
     <div className="flex flex-col-reverse place-items-center w-full h-full">
-      <div className="mb-10">
+      <div className="mb-6">
         {session ? (
           <button
             className="btn btn-neutral w-40"
@@ -56,9 +44,12 @@ const Navigation = () => {
           </Link>
         )}
       </div>
+
       <p className="mb-2">{session ? session?.user?.name : "Please Sign in"}</p>
+
       <div className="divider divider-start" />
-      <div className="mb-8">
+
+      <div className="mb-1">
         <ul className="menu menu-lg  w-56 rounded-box">
           <li>
             <Link href="/pages/main">
@@ -157,8 +148,9 @@ const Navigation = () => {
           </li>
         </ul>
       </div>
+
       <div className="divider divider-start" />
-      <div className="flex flex-col items-center w-full mb-7 mt-7">
+      <div className="flex flex-col items-center w-full mb-1 mt-1">
         <img src="/logo.png" className="w-[7rem] h-[5rem]" />
         <p className="text-center text-2xl font-bold">Game Point</p>
       </div>

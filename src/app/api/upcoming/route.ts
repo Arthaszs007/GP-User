@@ -9,7 +9,7 @@ export async function GET(req:Request){
     try{
         const upcoming =await Upcoming.find().exec();
 
-        return NextResponse.json(upcoming)
+        return NextResponse.json(upcoming,{status:200})
     }catch(e:any){
         return NextResponse.json({error:e.error},{status:400})
     }
