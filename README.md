@@ -3,6 +3,17 @@ Support credential and third-party authorized as github.
 
 Disclaimer: This project is for learning and research purposes only. All website data is sourced from the internet, and we are not responsible for the content of any data.
 
+## OverView
+
+Main page
+![failed](https://github.com/Arthaszs007/resource/blob/main/main.png?raw=true)
+
+Search modal
+
+Detail page
+
+Rank page
+
 ## Getting Started
 
 First, install
