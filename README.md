@@ -9,10 +9,13 @@ Main page
 ![failed](https://github.com/Arthaszs007/resource/blob/main/main.png?raw=true)
 
 Search modal
+![failed](https://github.com/Arthaszs007/resource/blob/main/Search.png?raw=true)
 
 Detail page
+![failed](https://github.com/Arthaszs007/resource/blob/main/detial.png?raw=true)
 
 Rank page
+![failed](https://github.com/Arthaszs007/resource/blob/main/rank.png?raw=true)
 
 ## Getting Started
 
