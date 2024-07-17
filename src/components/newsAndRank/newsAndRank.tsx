@@ -3,6 +3,7 @@ import News from "../news/news";
 import RankItem from "../rank/rankItem";
 import { INews } from "@/models/news";
 import { IUpcoming } from "@/models/upcoming";
+import Link from "next/link";
 
 const NewsAndRank = () => {
   //to storage the news array data
@@ -47,14 +48,24 @@ const NewsAndRank = () => {
   return (
     <div className="flex flex-row justify-between">
       <div className="w-2/3 pr-5">
-        <p className="text-2xl">News</p>
+        <div className="flex flex-row justify-between">
+          <p className="text-2xl">Cosplay Girl</p>
+          <Link href={"/pages/news"} className="link link-primary ">
+            <p className="text-right pt-2">See more...</p>
+          </Link>
+        </div>
         <div className="divider" />
         <div>
           <News news={news} />
         </div>
       </div>
       <div className="w-1/3 ">
-        <p className="text-2xl">Top Upcoming Games</p>
+        <div className="flex flex-row justify-between">
+          <p className="text-2xl">Top Upcoming Games</p>
+          <Link href={"/pages/rank"} className="link link-primary">
+            <p className="text-right pt-2">See more...</p>
+          </Link>
+        </div>
         <div className="border px-2 border-gray-300 mt-5">
           {upcoming.map((item, index) => (
             <div key={index}>

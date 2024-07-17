@@ -1,22 +1,39 @@
 "use client";
+import Newlist from "@/components/news/newlist";
+import { INews } from "@/models/news";
 import { useSession } from "next-auth/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const News = () => {
   const { data: session } = useSession();
+  const [news, setNews] = useState<INews[]>();
+
+  //initial func to fetch api
+  const Initial_News = async () => {
+    try {
+      const res = await fetch(`${process.env.WEB_URL}/api/news`, {
+        method: "GET",
+      });
+
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+
+      const data = await res.json();
+      setNews(data);
+    } catch (e) {
+      console.log("Fetch failed", e);
+    }
+  };
+
+  //initial the data
+  useEffect(() => {
+    Initial_News();
+  }, []);
   return (
     <div>
       {session ? (
-        <div className="flex flex-col items-center">
-          <p className="text-4xl text-center mt-4">News page is coming soon </p>
-          <img
-            className="h-[30rem] mt-3 w-[60rem]"
-            src="https://mastersenseigenetics.com/wp-content/uploads/2021/04/UnderConstruction.jpeg"
-            alt="default"
-          />
-        </div>
+        <Newlist news={news} />
       ) : (
-        <p className="text-4xl text-center">Please sign in to view news page</p>
+        <p className="text-4xl text-center">Please sign in to view rank page</p>
       )}
     </div>
   );
