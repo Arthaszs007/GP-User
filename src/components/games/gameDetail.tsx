@@ -35,7 +35,7 @@ const GameDetail = ({ game }: { game: IGame | undefined }) => {
                   <div className="flex flex-row items-center w-1/2 justify-between">
                     <div className="flex flex-row ">
                       <img
-                        src="https://cdn.iconscout.com/icon/premium/png-256-thumb/steam-2752064-2284881.png?f=webp"
+                        src={game && game.images}
                         alt="icon"
                         className="w-6 h-6"
                       />
