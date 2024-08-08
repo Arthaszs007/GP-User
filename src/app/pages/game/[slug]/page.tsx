@@ -45,7 +45,7 @@ const Game = ({ params }: { params: { slug: string } }) => {
       <div className="mt-32">
         <p className="text-2xl">Trailer and Images</p>
         <div className="divider" />
-        <Trailer desc={game && game.description} />
+        <Trailer desc={game && game.description} images={game && game.images} />
       </div>
 
       {/* news and rank */}

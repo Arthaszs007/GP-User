@@ -1,7 +1,13 @@
 import { getVideoSrc } from "@/lib/action/video";
 import React from "react";
 
-const Trailer = ({ desc }: { desc: string | undefined }) => {
+const Trailer = ({
+  desc,
+  images,
+}: {
+  desc: string | undefined;
+  images: string | undefined;
+}) => {
   return (
     <div className="flex flex-row space-x-4">
       <div className=" w-1/2">
@@ -20,42 +26,21 @@ const Trailer = ({ desc }: { desc: string | undefined }) => {
         <div>
           <img
             className="w-full h-full object-cover rounded-lg"
-            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            src={images}
             alt="icon"
           />
         </div>
         <div>
           <img
             className="w-full h-full object-cover rounded-lg"
-            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            src={images}
             alt="icon"
           />
         </div>
         <div>
           <img
             className="w-full h-full object-cover rounded-lg"
-            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
-            alt="icon"
-          />
-        </div>
-        <div>
-          <img
-            className="w-full h-full object-cover rounded-lg"
-            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
-            alt="icon"
-          />
-        </div>
-        <div>
-          <img
-            className="w-full h-full object-cover rounded-lg"
-            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
-            alt="icon"
-          />
-        </div>
-        <div>
-          <img
-            className="w-full h-full object-cover rounded-lg"
-            src="https://jesor.me/assets/o02yElEecO-1280.jpeg"
+            src={images}
             alt="icon"
           />
         </div>
