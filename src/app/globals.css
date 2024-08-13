@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 
-:root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
   
   
   @layer utilities {
@@ -26,5 +21,5 @@
   }
 }
 .expend-width{
-  animation:expend-width 1s forwards ;
+  animation:expend-width 2s forwards ;
 }
