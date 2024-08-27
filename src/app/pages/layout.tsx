@@ -8,11 +8,11 @@ import ErrorToast from "@/components/public/errorToast";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-row">
-      <div className="sticky top-0 h-screen w-58 ">
+      <div className="fixed top-0 h-screen z-10">
         <Navigation />
       </div>
-      <div className="flex flex-col w-full items-center bg-gray-100">
-        <div className=" pt-10 w-[70rem] ">
+      <div className="flex flex-col w-full md:items-start ml-[14rem] bg-gray-100 lg:items-center">
+        <div className=" pt-10 px-[4rem] w-[78rem] ">
           {children}
           <SearchModal />
           <ErrorToast />

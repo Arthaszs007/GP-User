@@ -29,7 +29,7 @@ const Navigation = () => {
     await signOut({ redirect: false });
   };
   return (
-    <div className="flex flex-col-reverse place-items-center w-full h-full">
+    <div className="flex flex-col-reverse place-items-center w-full h-full bg-white">
       <div className="mb-6">
         {session ? (
           <button
